@@ -1,0 +1,22 @@
+{
+  "name": "rest-api-movies",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khuongnguyen0412/rest-api-movies.git"
+  },
+  "author": "Khuong Nguyen <lapankhuongnguyen@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/khuongnguyen0412/rest-api-movies/issues"
+  },
+  "homepage": "https://github.com/khuongnguyen0412/rest-api-movies#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
