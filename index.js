@@ -1,5 +1,10 @@
 let express = require('express');
+let bodyParser=require('body-parser');
 let app = express();
+
+app.use(bodyParser.json({
+    type:'application/json'
+}));
 
 let MovieStore = require('./moviestore');
 let movieStore = new MovieStore();
@@ -24,6 +29,13 @@ app.get('/movies/:title', (req, res) => {
     return res.send({
         message:'Found movie',
         payload: foundMovies.pop()
+    });
+});
+
+app.post('/movies',(req,res)=>{
+    movieStore.add(req.body);
+    return res.send({
+        message:'movie added successfully'
     });
 });
 
