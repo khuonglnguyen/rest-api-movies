@@ -12,6 +12,10 @@ app.get('/',(req,res)=>{
     return res.redirect('/movies');
 });
 
+app.get('/movies/:title/:year',(req,res)=>{
+    return res.send(req.params);
+});
+
 app.listen(8000, () =>{
    console.log('server started at: 127.0.0.1:8000')
 });
