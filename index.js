@@ -4,14 +4,12 @@ let app=express();
 let MovieStore=require('./moviestore');
 let moiveStore=new MovieStore();
 
-let indexHandler=(req,res) => {
+app.get('/movies', (req,res) => {
     return res.send(moiveStore.all());
-};
+});
 
-app.get('/movies', indexHandler);
-
-app.get('/bye', (req,res) =>{
-    return res.send('see you again');
+app.get('/',(req,res)=>{
+    return res.redirect('/movies');
 });
 
 app.listen(8000, () =>{
