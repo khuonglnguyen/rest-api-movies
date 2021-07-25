@@ -1,13 +1,14 @@
 let express=require('express');
 let app=express();
 
-const datastore=require('./datastore.json');
+let MovieStore=require('./moviestore');
+let moiveStore=new MovieStore();
 
 let indexHandler=(req,res) => {
-    return res.send(datastore);
+    return res.send(moiveStore.all());
 };
 
-app.get('/', indexHandler);
+app.get('/movies', indexHandler);
 
 app.get('/bye', (req,res) =>{
     return res.send('see you again');
