@@ -31,9 +31,13 @@ class MovieStore {
         let oldMovie = movies.pop();
         let newMovie = Object.assign(oldMovie, newInfo);
 
-        let oldMovies = this.movieData.filter(x => x.title !== title);
+        let oldMovies = this.movieData.filter(x => x.Title !== title);
         this.movieData = [...oldMovies, newMovie];
         return true;
+    }
+
+    remove(title){
+        this.movieData = this.movieData.filter(x => x.Title !== title);
     }
 }
 
