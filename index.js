@@ -40,16 +40,29 @@ app.post('/movies', (req, res) => {
         });
     }
 
-    if(movieStore.has(req.body.Title)){
-        res.statusCode=400;
+    if (movieStore.has(req.body.Title)) {
+        res.statusCode = 400;
         return res.send({
-            message:'movie already existed'
+            message: 'movie already existed'
         });
     }
 
     movieStore.add(req.body);
     return res.send({
         message: 'movie added successfully'
+    });
+});
+
+app.put('/movies/:title', (req, res) => {
+    if (!movieStore.update(req.params.title, req.body)) {
+        res.statusCode = 500;
+        return res.send({
+            message:'failed to update movie info'
+        })
+    }
+
+    return res.send({
+        message: 'update movie successfully'
     });
 });
 
