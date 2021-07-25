@@ -10,7 +10,11 @@ let MovieStore = require('./moviestore');
 let movieStore = new MovieStore();
 
 app.get('/movies', (req, res) => {
-    return res.send(movieStore.all());
+    let movies = movieStore.search(req.query.title);
+    console.log(movies.length)
+    return res.send({
+        payload:movies
+    });
 });
 
 app.get('/', (req, res) => {

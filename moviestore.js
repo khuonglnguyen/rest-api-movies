@@ -39,6 +39,10 @@ class MovieStore {
     remove(title){
         this.movieData = this.movieData.filter(x => x.Title !== title);
     }
+
+    search(title){
+        return this.movieData.filter(x=>x.Title == title);
+    }
 }
 
 module.exports = MovieStore;
