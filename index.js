@@ -1,8 +1,10 @@
 let express=require('express');
 let app=express();
 
+const datastore=require('./datastore.json');
+
 let indexHandler=(req,res) => {
-    return res.send('hello world');
+    return res.send(datastore);
 };
 
 app.get('/', indexHandler);
